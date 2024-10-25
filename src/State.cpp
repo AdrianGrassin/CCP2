@@ -16,3 +16,8 @@ bool State::operator<(const State& other) const {
 bool State::operator==(const State& other) const {
     return name == other.name;
 }
+
+// Getter
+std::string State::getName() const {
+    return name;
+}

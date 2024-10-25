@@ -1,0 +1,21 @@
+# Input strings for the PDA recognizing L = { a^n b^n | n > 0 }
+
+# Accepted strings:
+ab
+aabb
+aaabbb
+aaaabbbb
+aaaaabbbbb
+aaaaaabbbbbb
+
+# Rejected strings:
+a
+b
+aab
+abb
+aaabb
+aabbbb
+aaabbbbbb
+ba
+.
+
