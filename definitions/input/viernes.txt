@@ -1,0 +1,9 @@
+#Cadenas para el lenguaje L = { A^n B C^k | n > 0, k > n }
+
+#Cadenas aceptadas
+AABCC
+ABCCC
+
+#Cadenas rechazadas
+ABBCC
+AABC

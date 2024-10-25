@@ -1,4 +1,4 @@
-# Simulador de Autómata de Pila (PDA) en C++
+# Simulador de Autómata de Pila (PDA) en C++ por Adrián Grassin Luis
 
 ## Descripción
 
@@ -6,12 +6,12 @@ Este proyecto es un simulador de Autómata de Pila (PDA) implementado en C++ uti
 
 - APf: Aceptación por estado final.
 - APv: Aceptación por pila vacía.
-El simulador también ofrece un modo de trazado que muestra paso a paso la ejecución del PDA, lo cual es útil para fines educativos y de depuración.
+El simulador también ofrece un modo de traza que muestra paso a paso la ejecución del PDA.
 
 ## Requisitos
 
 - Compilador C++ compatible con el estándar C++11 o superior.
-- Sistema operativo: El código es multiplataforma y puede compilarse en Windows, Linux o macOS.
+
 - Herramienta de compilación: Se proporciona un Makefile para facilitar la compilación.
 
 ## Instalación
@@ -21,6 +21,7 @@ El simulador también ofrece un modo de trazado que muestra paso a paso la ejecu
 2. Compilar el proyecto utilizando el Makefile proporcionado con el comando `make`.
 
 ## Uso
+
 El simulador se ejecuta desde la línea de comandos y acepta varias opciones:
   
   ``` bash
@@ -36,30 +37,48 @@ El simulador se ejecuta desde la línea de comandos y acepta varias opciones:
   - tracefile: Modo de trazado, salida a un archivo especificado.
 - -o, --output \<archivo>: Especifica el archivo de salida para el modo de trazado.
 - -a, --acceptance \<tipo>: Especifica el criterio de aceptación. Tipos disponibles:
-- apf: Aceptación por estado final (por defecto).
-- apv: Aceptación por pila vacía.
+  - apf: Aceptación por estado final (por defecto).
+  - apv: Aceptación por pila vacía.
 
 ## Ejemplos de uso
 
 Ejecución regular:
+
 ``` bash
 ./pda_simulator automata.txt entradas.txt
 ```
 
 Modo de trazado con salida por consola:
+
 ``` bash
 ./pda_simulator -m trace automata.txt entradas.txt
 ```
 
 Modo de trazado con salida a un archivo:
+
 ``` bash
 ./pda_simulator -m tracefile -o output.txt automata.txt entradas.txt
 ```
 
 Ejecución con criterio de aceptación por pila vacía:
+
 ``` bash
 ./pda_simulator -a apv automata.txt entradas.txt
 ```
+
+## Estructura del proyecto
+
+El código se divide en 2 carpetas principales:
+
+- **./src**: Contiene los archivos fuente del proyecto.
+
+- **./include**: Contiene los archivos de cabecera.
+
+Por otro lado se encuentran los siguientes archivos y ficheros relevantes para el proyecto:
+
+- **Makefile**: Archivo de configuración para compilar el proyecto.
+
+- **./definitions**: Contiene ejemplos de archivos de definición de PDA y sus inputs.
 
 ## Formato de los archivos de definición
 
@@ -103,6 +122,7 @@ El archivo debe contener la definición del PDA siguiendo un formato específico
   > q2 . S q3 S
 
 ## Archivo de cadenas de entrada (entradas.txt)
+
 Lista de cadenas a procesar por el PDA, una por línea. Las líneas en blanco o que comienzan con # se ignoran.
 
 ``` bash
@@ -186,7 +206,7 @@ El proyecto está estructurado utilizando clases para representar los componente
   - `bool processInput(const std::string& input)`: Procesa una cadena en modo regular.
   - `bool processInputTrace(const std::string& input, const std::string& outputMode)`: Procesa una cadena en modo de trazado.
 - **Métodos auxiliares**:
-  - `bool processRecursive(const State& currentState, const std::string& remainingInput, Stack& stack)`: Método recursivo para el procesamiento.
+  - `bool processRecursive(const State& currentState, const std::string& remainingInput, Stack& stack)`: Método recursivo para el procesamiento de cadenas.
   - `bool processRecursiveTrace(const State& currentState, const std::string& remainingInput, Stack& stack, std::string& trace, int depth = 0)`: Método recursivo para el modo de trazado.
   - `std::vector<Transition> getPossibleTransitions(const State& state, char inputSymbol, char stackSymbol)`: Obtiene las transiciones posibles desde un estado dado.
 
@@ -205,7 +225,7 @@ El proyecto está estructurado utilizando clases para representar los componente
 
 ```bash
 make
-``` 
+```
 
 - **Ejecutar el programa**:
 
@@ -219,3 +239,19 @@ make
 make clean
 ```
 
+---
+
+## ARREGLOS DEL CÓDIGO
+
+### Solventado el problema de salida por consola en la clase Stack - PDA
+
+![nuevo output](img/image.png)
+
+Como se puede apreciar el stack sale en orden en cada iteración y no al principio de la ejecución como antes.
+
+### Para ejecutar el ejercicio de clase
+
+```bash
+make 
+make exec
+```

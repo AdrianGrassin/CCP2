@@ -30,4 +30,5 @@ $(OBJ_DIR):
 clean:
 	rm -rf $(OBJ_DIR) $(TARGET)
 
-.PHONY: all clean	
+exec: $(TARGET)
+	.\$(TARGET).exe -m trace .\definitions\APf\APf-viernes.txt .\definitions\input\viernes.txt

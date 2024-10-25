@@ -7,15 +7,15 @@
 
 class Stack {
 private:
-    std::vector<char> stackContainer;
+  std::vector<char> stackContainer;
 
 public:
-    Stack(char initialSymbol);
-    void push(const std::string& symbols);
-    char pop();
-    char peek() const;
-    bool isEmpty() const;
-    void display() const;
+  Stack(char initialSymbol);
+  void push(const std::string& symbols);
+  char pop();
+  char peek() const;
+  bool isEmpty() const;
+  std::string display() const;
 };
 
 #endif // STACK_H

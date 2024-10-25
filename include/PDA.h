@@ -36,10 +36,16 @@ public:
     void addFinalState(const std::string& stateName);
     void addTransition(const std::string& currentState, char inputSymbol, char stackSymbol,
                        const std::string& nextState, const std::string& symbolsToPush);
+    std::set<char> getInputAlphabet() const;
+    std::set<State> getStates() const;
+    std::set<char> getStackAlphabet() const;
+    bool getUseFinalStateAcceptance() const;
 
     // Processing input strings
     bool processInput(const std::string& input);
     bool processInputTrace(const std::string& input, const std::string& outputMode);
+
+
 
 private:
     // Helper methods

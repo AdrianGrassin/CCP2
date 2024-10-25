@@ -10,14 +10,14 @@ State::State(const std::string& name) : name(name) {
 
 // Operator overloading for comparison
 bool State::operator<(const State& other) const {
-    return name < other.name;
+  return name < other.name;
 }
 
 bool State::operator==(const State& other) const {
-    return name == other.name;
+  return name == other.name;
 }
 
 // Getter
 std::string State::getName() const {
-    return name;
+  return name;
 }
